@@ -37,9 +37,7 @@ password varchar(255),
 Primary Key(email),
 );
 
-
 COMMANDS:
-
 List Customers:
 Select firstName, lastName FROM customers;
 
