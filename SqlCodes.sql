@@ -47,6 +47,6 @@ List Orders:
 Select firstName, lastName FROM customers;
 
 
-List Customer order history:
+List Customer order history
 SELECT * FROM Orders where Orders.CustomerID
  = “[customerID goes here]”
