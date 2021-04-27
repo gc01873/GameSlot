@@ -1,0 +1,121 @@
+
+            <div class="col-md-3">
+                <div class="product-tops text-center">
+                    <img src="product2.jpg" alt="Watch Dogs">
+                    <div class="overlay">
+                        <button type="button" class="btn btn-secondary" title="Quick look"><i
+                                class="far fa-eye"></i></i></button>
+                        <button type="button" class="btn btn-secondary" title="Add to Cart"><i
+                                class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                <div class="product-bottom text-center">
+                    <h4>Watch Dogs Legion</h4>
+                    <h5>$80</h5>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product-tops text-center">
+                    <img src="product3.jpg" alt="GTA5">
+                    <div class="overlay">
+                        <button type="button" class="btn btn-secondary" title="Quick look"><i
+                                class="far fa-eye"></i></i></button>
+                        <button type="button" class="btn btn-secondary" title="Add to Cart"><i
+                                class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                <div class="product-bottom text-center">
+                    <h4>Grand Theft Auto 5</h4>
+                    <h5>$35</h5>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product-tops text-center">
+                    <img src="product4.jpg" alt="FARCRY5">
+                    <div class="overlay">
+                        <button type="button" class="btn btn-secondary" title="Quick look"><i
+                                class="far fa-eye"></i></i></button>
+                        <button type="button" class="btn btn-secondary" title="Add to Cart"><i
+                                class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                <div class="product-bottom text-center">
+                    <h4>FARCRY 5</h4>
+                    <h5>$60</h5>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <a class="page-header clearfix" href="index.php" class="">Home</a>
+                    </div>
+                    <div class="page-header clearfix">
+                        <h2 class="pull-left">User Accounts</h2>
+                        <a href="create.php" class="btn btn-success pull-right">Make a new Account</a>
+                    </div>
+                    <?php
+                    // Include config file
+                    require_once "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM person";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo "<table class='table table-bordered table-striped'>";
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>Account Number</th>";
+                                        echo "<th>First Name</th>";
+                                        echo "<th>Last Name</th>";
+                                        echo "<th>Street</th>";
+                                        echo "<th>City</th>";
+                                        echo "<th>State</th>";
+                                        echo "<th>Zip Code</th>";
+                                        echo "<th>Email</th>";
+                                        echo "<th>Action</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                       
+                                        echo "<td>" . $row['account_number'] . "</td>";
+                                        echo "<td>" . $row['first_name'] . "</td>";
+                                        echo "<td>" . $row['last_name'] . "</td>";
+                                        echo "<td>" . $row['street'] . "</td>";
+                                        echo "<td>" . $row['city'] . "</td>";
+                                        echo "<td>" . $row['state'] . "</td>";
+                                        echo "<td>" . $row['zip_code'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        //echo "<td>" . $row['address'] . "</td>";
+                                        //echo "<td>" . $row['salary'] . "</td>";
+                                        echo "<td>";
+                                            echo "<a href='read.php?email=". $row['email'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            echo "<a href='update.php?email=". $row['email'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            echo "<a href='delete.php?email=". $row['email'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                        echo "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo "<p class='lead'><em>No records were found.</em></p>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+ 
+                    // Close connection
+                    mysqli_close($link);
+                    ?>
+                </div>
+            </div>
+        </div>
