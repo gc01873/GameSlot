@@ -63,7 +63,7 @@
                 if(empty($_SESSION['user'])){
                     echo "<ul class='nav navbar-nav navbar-right'>";
                         echo "<li><a href='cart.php'><span class='glyphicon glyphicon-shopping-cart'></span> Cart </a></li>";
-                        echo "<li><a href='#'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>";
+                        echo "<li><a href='signup.php'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>";
                         echo "<li><a href='logi.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
                         echo "</ul>";
                     }
