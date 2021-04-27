@@ -127,7 +127,9 @@ if (isset($_GET['logout'])) {
         $add = $_GET['add'];
         $sub = $_GET['sub'];
         $price =$_GET['price'];
+        $pr =$_GET['pr'];
         $postall = $_GET['postall'];
+        
         if (isset($_GET['remove'])) {
             unset($_SESSION['cart'][$key]);
             header("location: cart.php");
@@ -164,7 +166,7 @@ if (isset($_GET['logout'])) {
                     mysqli_stmt_bind_param($stmt, "iii",$va,$va1,$va2);
                     $va = $key;
                     $va1 = $uuuid;
-                    $va2 = $value;
+                    $va2 = $value/$pr;
                     if(mysqli_stmt_execute($stmt)){
                         // Records created successfully. Redirect to landing page
                         unset($_SESSION['cart']);
@@ -187,13 +189,14 @@ if (isset($_GET['logout'])) {
                     echo "<th>Price</th>";
                     echo "<th>Action</th>";
                 echo "</tr>";
-                
+                $price ='';
                 foreach ($_SESSION['cart'] as $key => $value) {
                     $total +=$value;
                     $sql = "SELECT * FROM game WHERE gameId = '$key'";
                     $result = mysqli_query($link, $sql);
                     $row = mysqli_fetch_array($result);
                     $quant = $value/$row['price'];
+                    $price = $row['price'];
                     echo "<tr name='removed'  value='{$row['gameId']}'>";
                         echo "<input type = 'hidden' value='$key'>";
                         echo "<th><img src='{$row['img']}' style='width:60px'><th>";
@@ -210,7 +213,7 @@ if (isset($_GET['logout'])) {
                     echo "<th><th>";
                     echo "<th></th>";
                     echo "<th><h3>$$total</h3></th>";
-                    echo "<th><a href='{$_SESSION['PHP_SELF']}?postall=1' class = 'btn btn-danger'>CHECKOUT</a></th>";
+                    echo "<th><a href='{$_SESSION['PHP_SELF']}?postall=1&pr=$price' class = 'btn btn-danger'>CHECKOUT</a></th>";
                 echo "</tr>";
             }
             else {
