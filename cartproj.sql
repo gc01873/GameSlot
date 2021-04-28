@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 23, 2021 at 03:50 AM
+-- Generation Time: Apr 27, 2021 at 06:37 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -78,7 +78,34 @@ INSERT INTO `orders` (`orderId`, `gameId`, `userId`, `quantity`) VALUES
 (10, 2, 2, 19),
 (11, 1, 2, 840),
 (12, 3, 2, 28),
-(13, 2, 2, 19);
+(13, 2, 2, 19),
+(14, 1, 2, 40),
+(15, 2, 2, 38),
+(16, 3, 2, 14),
+(17, 1, 2, 2),
+(18, 1, 2, 5),
+(19, 2, 2, 2),
+(20, 3, 2, 2),
+(21, 2, 2, 2),
+(22, 3, 2, 1),
+(23, 4, 2, 2),
+(24, 1, 2, 5),
+(25, 1, 2, 5),
+(26, 2, 2, 2),
+(27, 3, 2, 1),
+(28, 4, 2, 2),
+(29, 1, 2, 2),
+(30, 2, 2, 1),
+(31, 3, 2, 0),
+(32, 4, 2, 1),
+(33, 2, 2, 0),
+(34, 3, 2, 0),
+(35, 4, 2, 0),
+(36, 1, 2, 2),
+(37, 2, 2, 1),
+(38, 1, 2, 7),
+(39, 3, 2, 1),
+(40, 4, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -89,29 +116,41 @@ INSERT INTO `orders` (`orderId`, `gameId`, `userId`, `quantity`) VALUES
 CREATE TABLE `userinfo` (
   `userid` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `pword` varchar(255) DEFAULT NULL
+  `pword` varchar(255) DEFAULT NULL,
+  `firstName` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `addrStreet` varchar(255) DEFAULT NULL,
+  `addrCity` varchar(255) DEFAULT NULL,
+  `addrState` varchar(255) DEFAULT NULL,
+  `addrZip` int(11) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `userinfo`
 --
 
-INSERT INTO `userinfo` (`userid`, `email`, `pword`) VALUES
-(1, 'mcain0@pbs.org', 'Kj4sbQs0'),
-(2, 'ediament1@google.com.au', 'tkL2NXpnY'),
-(3, 'bautrie2@webnode.com', 'mADyT0'),
-(4, 'dshatliffe3@google.nl', '7hZcL94GSB'),
-(5, 'twolfendell4@godaddy.com', 'emg1Lzl'),
-(6, 'ljizhaki5@vistaprint.com', 'CQ5w7OixUh'),
-(7, 'dimmings6@mapquest.com', 'n0iPmTR'),
-(8, 'cbalaisot7@smugmug.com', 'f83vXys7Z4v'),
-(9, 'fjessopp8@livejournal.com', 'dKrzoXNCtjzQ'),
-(10, 'hcaizley9@chicagotribune.com', '8H3PuFzZzsP'),
-(11, 'ggagiea@time.com', 'rpTCAM'),
-(12, 'aphebeeb@ezinearticles.com', 'iLzCWCw'),
-(13, 'olawsc@mysql.com', 'vkvBe5TfVmU9'),
-(14, 'sbordisd@mozilla.com', 'w7OTjMfY0D'),
-(15, 'psamarthe@apple.com', 'uswUZOeAhz');
+INSERT INTO `userinfo` (`userid`, `email`, `pword`, `firstName`, `lastName`, `addrStreet`, `addrCity`, `addrState`, `addrZip`, `username`) VALUES
+(1, 'aswyndley0@163.com', 'iC19a7Di', 'Aldo', 'Swyndley', '7485 Sunbrook Way', 'Colorado Springs', 'Colorado', 34355, 'aswyndley0'),
+(2, 'mredsall1@utexas.edu', 'WtuOSCTNwhhR', 'Meggie', 'Redsall', '4571 Orin Alley', 'Tampa', 'Florida', 66297, 'mredsall1'),
+(3, 'gdoone2@fastcompany.com', '9x5K8c', 'Gena', 'Doone', '79446 Haas Place', 'Albany', 'New York', 34502, 'gdoone2'),
+(4, 'slinstead3@wisc.edu', 'HAxCHqgClr2Z', 'Shelley', 'Linstead', '06 Susan Avenue', 'Las Vegas', 'Nevada', 32378, 'slinstead3'),
+(5, 'rboyson4@gnu.org', 'Jgl48P', 'Ruthanne', 'Boyson', '442 Loomis Trail', 'Lexington', 'Kentucky', 20238, 'rboyson4'),
+(6, 'tjinkin5@jimdo.com', 'ZHLjwCi0sum', 'Tiertza', 'Jinkin', '74392 Barnett Junction', 'New York City', 'New York', 28202, 'tjinkin5'),
+(7, 'mgommery6@bbc.co.uk', 'hQyoUkWJ', 'Marti', 'Gommery', '8137 Banding Court', 'Naples', 'Florida', 32135, 'mgommery6'),
+(8, 'cfritschmann7@harvard.edu', 'hrfGjNXh', 'Cary', 'Fritschmann', '0 Namekagon Terrace', 'Seattle', 'Washington', 68401, 'cfritschmann7'),
+(9, 'erayburn8@shop-pro.jp', 'uqghwVo2', 'Eberto', 'Rayburn', '9013 Springview Avenue', 'Corona', 'California', 80655, 'erayburn8'),
+(10, 'fstuddert9@blogs.com', 'byIBFU', 'Farly', 'Studdert', '0 Cottonwood Circle', 'Richmond', 'Virginia', 75315, 'fstuddert9'),
+(11, 'oplewesa@cargocollective.com', 'vMFKqF', 'Ondrea', 'Plewes', '771 Scott Junction', 'San Francisco', 'California', 68744, 'oplewesa'),
+(12, 'dhudspithb@desdev.cn', 'ZQPwzSA9', 'Donnie', 'Hudspith', '397 Morning Crossing', 'Jamaica', 'New York', 56407, 'dhudspithb'),
+(13, 'hbraccoc@jugem.jp', 'XbdIADDbH', 'Harriet', 'Bracco', '51 Marcy Alley', 'San Jose', 'California', 88260, 'hbraccoc'),
+(14, 'ejoinsond@bloglines.com', 'PPLaX5dF8', 'Elwira', 'Joinson', '02 Bobwhite Trail', 'New York City', 'New York', 77443, 'ejoinsond'),
+(15, 'clanfaree@ucoz.com', 'N3ORq36WVK', 'Clotilda', 'Lanfare', '1 Messerschmidt Avenue', 'Bakersfield', 'California', 68044, 'clanfaree'),
+(16, 'lduxfieldf@tinypic.com', 'pKfQbxPBd', 'Latashia', 'Duxfield', '872 Sunbrook Terrace', 'Portsmouth', 'Virginia', 35834, 'lduxfieldf'),
+(17, 'rwoolertong@parallels.com', 'deKbUgoMBU', 'Reeba', 'Woolerton', '05087 Northridge Trail', 'Salt Lake City', 'Utah', 22777, 'rwoolertong'),
+(18, 'lashplanth@amazon.co.jp', 'syyR8C', 'Lizbeth', 'Ashplant', '819 Ridgeview Park', 'Carol Stream', 'Illinois', 77074, 'lashplanth'),
+(19, 'fwincklei@washingtonpost.com', 'FcIlrNacNOu', 'Fletch', 'Winckle', '5 Doe Crossing Place', 'Northridge', 'California', 59763, 'fwincklei'),
+(20, 'mredingtonj@blogs.com', 'nQnpkFJmYn9', 'Madalyn', 'Redington', '87 Sullivan Street', 'Las Vegas', 'Nevada', 23343, 'mredingtonj');
 
 --
 -- Indexes for dumped tables
@@ -145,19 +184,19 @@ ALTER TABLE `userinfo`
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `gameId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `gameId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables

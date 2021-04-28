@@ -1,0 +1,5 @@
+download project1 folder and put in out htadocs folder of your apache server directory
+
+Import cartproj.php into your Server
+
+go to localhost:{port}/project1/handler.php
